@@ -1,0 +1,14 @@
+[
+  {
+    "id": "punto1",
+    "tipo": "entrega",
+    "lat": -0.219,
+    "lng": -78.511
+  },
+  {
+    "id": "punto2",
+    "tipo": "recogida",
+    "lat": -0.224,
+    "lng": -78.516
+  }
+]
