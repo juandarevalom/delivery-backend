@@ -1,7 +1,6 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const fs = require('fs');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,27 +8,13 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-let ubicaciones = {}; // Objeto en memoria (podrías usar un JSON para simular persistencia)
+app.use('/api/ubicacion', require('./routes/ubicaciones'));
+app.use('/api/puntos', require('./routes/puntos'));
 
-// Ruta para recibir la ubicación
-app.post('/api/ubicacion', (req, res) => {
-  const { id, lat, lng, timestamp } = req.body;
-
-  if (!id || !lat || !lng) {
-    return res.status(400).json({ error: 'Datos incompletos' });
-  }
-
-  ubicaciones[id] = { lat, lng, timestamp };
-  fs.writeFileSync('locations.json', JSON.stringify(ubicaciones, null, 2));
-
-  res.json({ message: 'Ubicación recibida' });
-});
-
-// Ruta para consultar ubicaciones actuales
-app.get('/api/ubicaciones', (req, res) => {
-  res.json(ubicaciones);
+app.get('/', (req, res) => {
+  res.send('API de Delivery activa 🚴‍♂️');
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en puerto ${PORT}`);
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
