@@ -2,13 +2,13 @@
   {
     "id": "punto1",
     "tipo": "entrega",
-    "lat": -0.219,
-    "lng": -78.511
+    "lat": -2.9011,
+    "lng": -79.0050
   },
   {
     "id": "punto2",
     "tipo": "recogida",
-    "lat": -0.224,
-    "lng": -78.516
+    "lat": -2.9023,
+    "lng": -79.0033
   }
 ]
