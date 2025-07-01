@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 app.use('/api/ubicacion', require('./routes/ubicaciones'));
 app.use('/api/puntos', require('./routes/puntos'));
+app.use('/api/pedidos', require('./routes/pedidos'));
 
 app.get('/', (req, res) => {
   res.send('API de Delivery activa 🚴‍♂️');
