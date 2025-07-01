@@ -1,3 +1,12 @@
+const express = require('express');
+const router = express.Router();
+const fs = require('fs-extra');
+const path = require('path');
+
+const pedidosPath = path.join(__dirname, '../data/pedidos.json');
+
+// Rutas anteriores...
+
 // Crear nuevo pedido
 router.post('/crear', async (req, res) => {
   const nuevoPedido = req.body;
@@ -15,3 +24,5 @@ router.post('/crear', async (req, res) => {
 
   res.json({ message: 'Pedido creado correctamente' });
 });
+
+module.exports = router;
