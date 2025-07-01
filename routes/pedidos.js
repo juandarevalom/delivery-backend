@@ -6,7 +6,14 @@ const path = require('path');
 const pedidosPath = path.join(__dirname, '../data/pedidos.json');
 
 // Rutas anteriores...
-
+router.get('/', async (req, res) => {
+  if (await fs.pathExists(pedidosPath)) {
+    const pedidos = await fs.readJson(pedidosPath);
+    res.json(pedidos);
+  } else {
+    res.json([]);
+  }
+});
 // Crear nuevo pedido
 router.post('/crear', async (req, res) => {
   const nuevoPedido = req.body;
